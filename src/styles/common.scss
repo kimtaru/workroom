@@ -9,9 +9,40 @@
 
 @import '~antd/dist/antd.css';
 
-#ShowSpinning {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+div {
+  background-color: none;
+}
+#HeaderComponent {
+  margin: 0 auto 0 auto;
+  width: 100%;
+  max-width: 2000px;
+  min-width: 1200px;
+  position: relative;
+  //border: 1px solid red;
+  .logo {
+    display: inline;
+    //border: 1px solid blue;
+  }
+  .menuDiv {
+    //border: 1px solid black;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline;
+    //border: 1px solid red;
+    .menu {
+      cursor: pointer;
+      //border: 1px solid red;
+      display: inline;
+      margin: 40px;
+      padding: 10px;
+      padding-bottom: 20px;
+      span {
+        color: black;
+      }
+    }
+    .current {
+      border-bottom: 4px solid blue;
+    }
+  }
 }

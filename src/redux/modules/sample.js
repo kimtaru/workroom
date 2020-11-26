@@ -1,27 +1,12 @@
 import SampleService from '../../services/SampleService';
-import {
-  createAction,
-  createActions,
-  handleActions,
-} from 'redux-actions';
-import {
-  select,
-  put,
-  delay,
-  call,
-  takeLeading,
-  takeEvery,
-} from 'redux-saga/effects';
-import { useSelector } from 'react-redux';
+import { createAction, createActions, handleActions } from 'redux-actions';
+import { select, put, call, takeEvery } from 'redux-saga/effects';
 
 const prefix = 'workroom-front/sample';
 
-const { start, success, fail } = createActions(
-  'START',
-  'SUCCESS',
-  'FAIL',
-  { prefix },
-);
+const { start, success, fail } = createActions('START', 'SUCCESS', 'FAIL', {
+  prefix,
+});
 
 const initialState = {
   sample: [],
@@ -55,20 +40,13 @@ export default reducer;
 
 const START_GET_SAMPLE = `${prefix}/START_GET_SAMPLE`;
 
-export const startGetSample = createAction(
-  `${START_GET_SAMPLE}`,
-);
+export const startGetSample = createAction(`${START_GET_SAMPLE}`);
 
 function* startGetSampleSaga() {
   try {
     yield put(start());
-    const token = yield select(
-      (state) => state.userLogin.token,
-    );
-    const sample = yield call(
-      SampleService.getSample,
-      token,
-    );
+    const token = yield select((state) => state.userLogin.token);
+    const sample = yield call(SampleService.getSample, token);
     yield put(success(sample));
   } catch (error) {
     yield put(fail(error));
