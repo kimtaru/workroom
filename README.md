@@ -1,9 +1,12 @@
-# My toy project 'Workroom'
+# 토이 프로젝트 'Workroom'
 
-dashboard가 구현되어 있습니다.
+simple한 UI를 가진 이슈관리 툴 워크룸입니다 :)
 
-- Framework : React.js
-- Styling : styled-components / SCSS / antd UI Framework에서 레이아웃과 일부 컴포넌트
-- middleware : redux-saga
-- state management : redux
+- Framework(Front): React
+- Styling: SCSS, Styled-components(Scoping), Antd에서 일부 component
+- middleware: redux-saga
+- state management: redux, react-redux
+- Server framework: Springboot(JAVA)
+- ORM: hibernate, QueryDsl
+- RDBMS: H2database, MySQL
 
