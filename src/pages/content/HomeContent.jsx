@@ -10,10 +10,9 @@ export default function HomeContent() {
     <Content style={backgroundColorWhite}>
       <div id="HomeContent">
         <div className="copyright">
-          My simple issue manager
-          <br /> 'Workroom'
+          사용하기 간편한 이슈관리 툴
+          <br /> <span>Workroom</span>
         </div>
-        <div className=""></div>
       </div>
     </Content>
   );

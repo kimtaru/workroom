@@ -7,7 +7,7 @@ import UserLogin from './pages/UserLogin';
 import NotFound from './pages/NotFound';
 import { Layout } from 'antd';
 import Header from './pages/header/Header';
-import 'antd/dist/antd.css';
+
 import './styles/common.scss';
 import HomeContent from './pages/content/HomeContent';
 import IssueSider from './pages/sider/IssueSider';
@@ -26,7 +26,7 @@ function App() {
             </Route>
             <Route path="/issue">
               <Route render={() => <Header current="1" />} />
-              <Layout>
+              <Layout id="Issue">
                 <Route component={IssueSider} />
                 <Route exact path="/issue" component={Hi} />
                 <Route path="/issue/hello" component={Hello} />

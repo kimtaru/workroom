@@ -14,6 +14,12 @@ $kor-font: 'Nanum Gothic', sans-serif;
 $eng-font: 'Oswald', sans-serif;
 $eng-font2: 'Montserrat', sans-serif;
 $kor-font2: 'Jua', sans-serif;
+$gray: '#dfe0e1';
+$blue: '#4386f1';
+
+.ant-layout {
+  background: #ffffff !important;
+}
 
 #HeaderComponent {
   margin: 0 auto 0 auto;
@@ -24,6 +30,8 @@ $kor-font2: 'Jua', sans-serif;
   font-size: 16px;
   font-family: $eng-font;
   font-weight: 200;
+  background-color: #ffffff;
+  border-bottom: 2px solid #dfe0e1;
   span {
     padding: 20px;
     color: black;
@@ -53,6 +61,11 @@ $kor-font2: 'Jua', sans-serif;
     display: inline-block;
     right: 0;
     cursor: pointer;
+    .loginBtn:hover {
+      font-weight: 500;
+      color: #4386f1;
+      transition: 0.3s ease;
+    }
   }
 }
 
@@ -71,15 +84,13 @@ $kor-font2: 'Jua', sans-serif;
 }
 
 #IssueSider {
+  background-color: #ffffff;
   padding: 40px 15px 0 0;
   .menuItem {
     padding: 10px 10px 10px 15px;
-    //border: 1px solid black;
-    span {
-      font-size: 17px;
-      color: black;
-      font-family: $kor-font2;
-    }
+    font-size: 17px;
+    color: black;
+    font-family: $kor-font2;
   }
   .menuItem:hover {
     background-color: #efefef;
@@ -89,5 +100,110 @@ $kor-font2: 'Jua', sans-serif;
     border-left: 6px solid #4386f1;
     background-color: #efefef;
     border-radius: 0 30px 30px 0;
+    color: #4386f1;
+    transition: 0.3s ease;
+  }
+}
+
+#Issue {
+  //background-color: #ffffff;
+  //border: 1px solid red;
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto 0 auto;
+}
+
+#UserLoginComponent {
+  //border: 1px solid black;
+  text-align: center;
+  .title {
+    //border-bottom: 2px solid #dfe0e1;
+    width: 300px;
+    margin: 100px auto 5px auto;
+    text-align: center;
+    font-family: $eng-font2;
+    font-size: 3.5em;
+  }
+  .subtitle {
+    font-size: 16px;
+    font-family: $kor-font;
+    display: block;
+  }
+  .alert {
+    display: block;
+    //border: 1px solid red;
+    height: 20px;
+    margin-bottom: 4px;
+    font-size: 12px;
+    color: red;
+  }
+  .form {
+    width: 400px;
+    height: 400px;
+    //border: 1px solid black;
+    margin: 0 auto 0 auto;
+    //box-shadow: 2px 2px 4px 2px gray;
+    padding-top: 30px;
+    .forgot {
+      width: 350px;
+      margin: 0 auto 0 auto;
+      text-align: right;
+      //border: 1px solid red;
+      font-size: 12px;
+      color: #4386f1;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .email,
+    .password {
+      margin-bottom: 10px;
+      text-align: center;
+
+      input {
+        width: 350px;
+        height: 45px;
+        border: 1px solid lightgrey;
+        border-radius: 4px;
+        padding-left: 10px;
+        outline: none;
+      }
+      input:focus {
+        border: 1px solid #4386f1;
+      }
+    }
+    .btn-div {
+      margin-top: 25px;
+      button {
+        height: 45px;
+        width: 350px;
+        border: none;
+        border-radius: 4px;
+        background: #4386f1;
+        font-family: $kor-font;
+        font-size: 16px;
+        color: #ffffff;
+        font-weight: bold;
+        outline: none;
+        cursor: pointer;
+      }
+      hr {
+        width: 350px;
+        color: $gray;
+        margin: 20px auto 20px auto;
+      }
+      .googleLogin {
+        cursor: pointer;
+        border-radius: 4px;
+        padding-top: 10px;
+        position: relative;
+        width: 350px;
+        height: 45px;
+        text-align: center;
+        margin: 0 auto 0 auto;
+        background: #ffffff;
+        color: gray;
+        border: 1px solid lightgrey;
+      }
+    }
   }
 }

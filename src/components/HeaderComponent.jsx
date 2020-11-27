@@ -16,14 +16,10 @@ export default function HeaderComponent({ current }) {
     $(arr[current]).addClass('current');
     // 현재 선택된 메뉴에만 클래스 추가
   }, [current]);
-  const headerStyle = {
-    backgroundColor: '#ffffff',
-    borderBottom: '2px solid #DFE0E1',
-    //height: '100px',
-  };
+
   return (
-    <Header style={headerStyle}>
-      <div id="HeaderComponent">
+    <Header id="HeaderComponent">
+      <div>
         <div className="logo">
           <Link to="/">
             <span>Workroom</span>
@@ -53,7 +49,7 @@ export default function HeaderComponent({ current }) {
         </div>
         <div className="user-state">
           <Link to="/auth/login">
-            <span>[User State]</span>
+            <span className="loginBtn">[ LOGIN ]</span>
           </Link>
         </div>
       </div>

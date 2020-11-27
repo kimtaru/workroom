@@ -4,7 +4,7 @@ export default function Hello() {
   const { Content } = Layout;
 
   return (
-    <Content>
+    <Content id="Hello">
       <div>Hello</div>
     </Content>
   );
