@@ -8,41 +8,86 @@
 //Button
 
 @import '~antd/dist/antd.css';
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nanum+Gothic:wght@400;700;800&family=Oswald:wght@200;300;400;500;600;700&display=swap');
 
-div {
-  background-color: none;
-}
+$kor-font: 'Nanum Gothic', sans-serif;
+$eng-font: 'Oswald', sans-serif;
+$eng-font2: 'Montserrat', sans-serif;
+$kor-font2: 'Jua', sans-serif;
+
 #HeaderComponent {
   margin: 0 auto 0 auto;
   width: 100%;
   max-width: 2000px;
   min-width: 1200px;
   position: relative;
-  //border: 1px solid red;
+  font-size: 16px;
+  font-family: $eng-font;
+  font-weight: 200;
+  span {
+    padding: 20px;
+    color: black;
+  }
   .logo {
     display: inline;
-    //border: 1px solid blue;
   }
   .menuDiv {
-    //border: 1px solid black;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     display: inline;
-    //border: 1px solid red;
     .menu {
       cursor: pointer;
-      //border: 1px solid red;
-      display: inline;
-      margin: 40px;
-      padding: 10px;
-      padding-bottom: 20px;
-      span {
-        color: black;
-      }
+      display: inline-block;
+      width: 100px;
+      height: 64px;
+      text-align: center;
     }
     .current {
-      border-bottom: 4px solid blue;
+      border-bottom: 4px solid #4386f1;
+      font-weight: 500;
     }
+  }
+  .user-state {
+    position: absolute;
+    display: inline-block;
+    right: 0;
+    cursor: pointer;
+  }
+}
+
+#HomeContent {
+  //border: 1px solid red;
+  div {
+    background-color: #ffffff;
+  }
+  font-family: $kor-font2;
+  padding: 80px;
+  .copyright {
+    font-size: 3em;
+    //border: 1px solid blue;
+    text-align: center;
+  }
+}
+
+#IssueSider {
+  padding: 40px 15px 0 0;
+  .menuItem {
+    padding: 10px 10px 10px 15px;
+    //border: 1px solid black;
+    span {
+      font-size: 17px;
+      color: black;
+      font-family: $kor-font2;
+    }
+  }
+  .menuItem:hover {
+    background-color: #efefef;
+    border-radius: 0 30px 30px 0;
+  }
+  .selected {
+    border-left: 6px solid #4386f1;
+    background-color: #efefef;
+    border-radius: 0 30px 30px 0;
   }
 }

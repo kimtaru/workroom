@@ -16,16 +16,19 @@ export default function HeaderComponent({ current }) {
     $(arr[current]).addClass('current');
     // 현재 선택된 메뉴에만 클래스 추가
   }, [current]);
-
+  const headerStyle = {
+    backgroundColor: '#ffffff',
+    borderBottom: '2px solid #DFE0E1',
+    //height: '100px',
+  };
   return (
-    <Header
-      style={{
-        backgroundColor: '#ffffff',
-        borderBottom: '2px solid black',
-      }}
-    >
+    <Header style={headerStyle}>
       <div id="HeaderComponent">
-        <div className="logo">Workroom</div>
+        <div className="logo">
+          <Link to="/">
+            <span>Workroom</span>
+          </Link>
+        </div>
         <div className="menuDiv">
           <div className="menu">
             <Link to="/">
@@ -47,6 +50,11 @@ export default function HeaderComponent({ current }) {
               <span>NOTICE</span>
             </Link>
           </div>
+        </div>
+        <div className="user-state">
+          <Link to="/auth/login">
+            <span>[User State]</span>
+          </Link>
         </div>
       </div>
     </Header>
