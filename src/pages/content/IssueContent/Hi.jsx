@@ -2,5 +2,11 @@ import React from 'react';
 import { Layout } from 'antd';
 export default function Hi() {
   const { Content } = Layout;
-  return <Content id="Hi">Hi</Content>;
+  return (
+    <Layout id="Hi">
+      <Content>
+        <div>asd</div>
+      </Content>
+    </Layout>
+  );
 }

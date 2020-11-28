@@ -19,7 +19,7 @@ export default function HeaderComponent({ current }) {
 
   return (
     <Header id="HeaderComponent">
-      <div>
+      <div className="HeaderComponent">
         <div className="logo">
           <Link to="/">
             <span>Workroom</span>
