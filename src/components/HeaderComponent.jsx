@@ -48,7 +48,7 @@ export default function HeaderComponent({ current }) {
           </div>
         </div>
         <div className="user-state">
-          <Link to="/auth/login">
+          <Link className="aa" to="/auth/login">
             <span className="loginBtn">[ LOGIN ]</span>
           </Link>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
 
 export default function UserLoginComponent() {
   const google = <FontAwesomeIcon icon={faGoogle} size="lg" />;
@@ -23,6 +24,12 @@ export default function UserLoginComponent() {
           <button className="loginBtn">로그인</button>
           <hr />
           <div className="googleLogin">{google} Google 계정으로 로그인</div>
+          <div className="messege">
+            아직 계정이 없으신가요?{' '}
+            <Link to="/join" className="link-to-join">
+              계정 만들기
+            </Link>
+          </div>
         </div>
       </div>
     </div>

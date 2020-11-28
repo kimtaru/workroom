@@ -13,6 +13,7 @@ import HomeContent from './pages/content/HomeContent';
 import IssueSider from './pages/sider/IssueSider';
 import Hi from './pages/content/IssueContent/Hi';
 import Hello from './pages/content/IssueContent/Hello';
+import UserJoin from './pages/UserJoin';
 
 function App() {
   return (
@@ -39,8 +40,12 @@ function App() {
               <Route render={() => <Header current="3" />} />
             </Route>
             <Route path="/auth/login">
-              <Route render={() => <Header />} />
+              <Route component={Header} />
               <Route component={UserLogin} />
+            </Route>
+            <Route path="/join">
+              <Route component={Header} />
+              <Route component={UserJoin} />
             </Route>
             <Route component={NotFound} />
           </Switch>

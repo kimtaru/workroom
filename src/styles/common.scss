@@ -8,15 +8,59 @@ $kor-font2: 'Jua', sans-serif;
 $gray: '#dfe0e1';
 $blue: '#4386f1';
 
+@mixin content {
+  margin-left: 260px;
+  margin-top: 20px;
+}
 .ant-layout {
   background: #ffffff !important;
+}
+
+input {
+  width: 350px;
+  height: 45px;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  padding-left: 10px;
+  outline: none;
+}
+button {
+  height: 45px;
+  width: 350px;
+  border: none;
+  border-radius: 4px;
+  background: #4386f1;
+  font-family: $kor-font;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+}
+hr {
+  width: 350px;
+  color: $gray;
+  margin: 20px auto 20px auto;
+}
+.googleLogin {
+  cursor: pointer;
+  border-radius: 4px;
+  padding-top: 10px;
+  position: relative;
+  width: 350px;
+  height: 45px;
+  text-align: center;
+  margin: 0 auto 0 auto;
+  background: #ffffff;
+  color: gray;
+  border: 1px solid lightgrey;
 }
 #HeaderComponent {
   border: 2px solid #dfe0e1;
   background: #ffffff;
   height: 68px;
   .HeaderComponent {
-    //border: 2px solid red;
+    padding-left: 2%;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
@@ -106,9 +150,50 @@ $blue: '#4386f1';
   max-width: 2000px;
   margin: 0 auto 0 auto;
 }
+#UserJoinComponent {
+  width: 600px;
+  margin: 85px auto 0 auto;
+  text-align: center;
+  .title {
+    font-family: $kor-font;
+
+    font-size: 17px;
+
+    line-height: 28px;
+    .strong {
+      font-weight: bold;
+      color: #4386f1;
+    }
+  }
+  .form {
+    padding-top: 20px;
+    .label {
+      width: 350px;
+      text-align: left;
+      margin: 0 auto 0 auto;
+      color: gray;
+      font-size: 12px;
+      padding-left: 2px;
+    }
+    .term-div {
+      width: 350px;
+      text-align: left;
+      margin: 0 auto 10px auto;
+      color: gray;
+      .term {
+        color: #3e3f40;
+      }
+    }
+    .join-btn {
+      margin-top: 35px;
+    }
+    input {
+      margin-bottom: 15px;
+    }
+  }
+}
 #UserLoginComponent {
-  margin-top: 70px;
-  padding-top: 30px;
+  padding-top: 10px;
   text-align: center;
   .title {
     width: 300px;
@@ -124,7 +209,6 @@ $blue: '#4386f1';
   }
   .alert {
     display: block;
-    //border: 1px solid red;
     height: 20px;
     margin-bottom: 4px;
     font-size: 12px;
@@ -148,57 +232,33 @@ $blue: '#4386f1';
     .password {
       margin-bottom: 10px;
       text-align: center;
-      input {
-        width: 350px;
-        height: 45px;
-        border: 1px solid lightgrey;
-        border-radius: 4px;
-        padding-left: 10px;
-        outline: none;
-      }
+
       input:focus {
         border: 1px solid #4386f1;
       }
     }
     .btn-div {
       margin-top: 25px;
-      button {
-        height: 45px;
-        width: 350px;
-        border: none;
-        border-radius: 4px;
-        background: #4386f1;
-        font-family: $kor-font;
-        font-size: 16px;
-        color: #ffffff;
-        font-weight: bold;
-        outline: none;
-        cursor: pointer;
-      }
-      hr {
-        width: 350px;
-        color: $gray;
-        margin: 20px auto 20px auto;
-      }
-      .googleLogin {
-        cursor: pointer;
-        border-radius: 4px;
-        padding-top: 10px;
-        position: relative;
-        width: 350px;
-        height: 45px;
-        text-align: center;
-        margin: 0 auto 0 auto;
-        background: #ffffff;
-        color: gray;
-        border: 1px solid lightgrey;
-      }
+    }
+  }
+  .messege {
+    margin-top: 10px;
+    //border: 1px solid red;
+    color: gray;
+    .link-to-join {
+      cursor: pointer;
+      color: #4386f1;
+      font-weight: 500;
     }
   }
 }
 
 #Hi {
   font-size: 100px;
-  margin-left: 260px;
-  margin-top: 20px;
+  @include content;
+}
+
+#Hello {
+  font-size: 100px;
+  @include content;
 }
