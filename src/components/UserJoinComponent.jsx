@@ -5,7 +5,7 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { useState } from 'react';
 import * as common from '../common-function/Common';
 
-export default function UserJoinComponent() {
+export default function UserJoinComponent({ executeJoin }) {
   const google = <FontAwesomeIcon icon={faGoogle} size="lg" />;
 
   const email = useRef();
@@ -66,7 +66,19 @@ export default function UserJoinComponent() {
 
   const userJoin = () => {
     if (emailMsg && pwdMsg && pwdCheckMsg && termOne) {
-      console.log('계정 등록 완료!');
+      const _email = email.current.value;
+      const _pwd = pwd.current.value;
+      const _termOne = termOne ? 1 : 0;
+      const _termTwo = termTwo ? 1 : 0;
+
+      const user = {
+        userAccount: _email,
+        password: _pwd,
+        termOne: _termOne,
+        termTwo: _termTwo,
+      };
+
+      executeJoin(user);
     }
   };
   return (
