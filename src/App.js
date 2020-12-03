@@ -14,6 +14,7 @@ import IssueSider from './pages/sider/IssueSider';
 import Hi from './pages/content/IssueContent/Hi';
 import Hello from './pages/content/IssueContent/Hello';
 import UserJoin from './pages/UserJoin';
+import Successed from './pages/Successed';
 
 function App() {
   return (
@@ -45,7 +46,18 @@ function App() {
             </Route>
             <Route path="/join">
               <Route component={Header} />
-              <Route component={UserJoin} />
+              <Route exact path="/join" component={UserJoin} />
+              <Route
+                path="/join/success"
+                render={() => (
+                  <Successed
+                    title="회원가입"
+                    subtitle="이제 워크룸이 제공하는 기능을 이용해보세요!"
+                    routeName="로그인하기"
+                    addr="/auth/login"
+                  />
+                )}
+              />
             </Route>
             <Route component={NotFound} />
           </Switch>

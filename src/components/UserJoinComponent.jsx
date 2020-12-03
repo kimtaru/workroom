@@ -3,42 +3,48 @@ import { Checkbox } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { useState } from 'react';
+import ShowSpinning from './common/ShowSpinning';
 import * as common from '../common-function/Common';
+import { useSelector } from 'react-redux';
 
-export default function UserJoinComponent({ executeJoin }) {
-  const google = <FontAwesomeIcon icon={faGoogle} size="lg" />;
+export default function UserJoinComponent({ executeJoin, doubleCheck }) {
+  const google = <FontAwesomeIcon icon={faGoogle} />;
+  // icon image : Google Logo
 
+  //Ref
   const email = useRef();
   const pwd = useRef();
   const pwdCheck = useRef();
 
-  const [emailMsg, setEmailMsg] = useState();
-  const [pwdMsg, setPwdMsg] = useState();
-  const [pwdCheckMsg, setPwdCheckMsg] = useState();
+  //State
+  const [emailMsg, setEmailMsg] = useState('');
+  const [pwdMsg, setPwdMsg] = useState('');
+  const [pwdCheckMsg, setPwdCheckMsg] = useState('');
   const [termOne, setTermOne] = useState(false);
   const [termTwo, setTermTwo] = useState(false);
+
+  const { loading, double } = useSelector((state) => state.user);
 
   // 이메일 유효성 검증
   const emailValidation = () => {
     let _email = email.current.value;
+
     if (common.checkEmail(_email)) {
-      if (common.doubleCheck(_email)) {
-        // 계정 중복체크 함수 만들어야 함 (중복이면 true, 아니면 false 반환 하도록)
-        setEmailMsg(2); // 이미 사용중인 계정입니다.
-      } else {
-        setEmailMsg(true);
-      }
+      setEmailMsg('CORRECT');
     } else {
-      setEmailMsg(3); // 올바른 이메일 형식이 아닙니다.
+      setEmailMsg('INCORRECT'); // 올바른 이메일 형식이 아닙니다.
     }
+
+    doubleCheck(_email);
   };
+
   // 패스워드 유효성 검증
   const pwdValidation = () => {
     let _pwd = pwd.current.value;
     if (common.checkPwd(_pwd)) {
-      setPwdMsg(true);
+      setPwdMsg('CORRECT');
     } else {
-      setPwdMsg(1);
+      setPwdMsg('INCORRECT');
     }
   };
   //
@@ -46,9 +52,9 @@ export default function UserJoinComponent({ executeJoin }) {
     let _pwd = pwd.current.value;
     let _pwdCheck = pwdCheck.current.value;
     if (_pwd === _pwdCheck) {
-      setPwdCheckMsg(true);
+      setPwdCheckMsg('CORRECT');
     } else {
-      setPwdCheckMsg(1);
+      setPwdCheckMsg('INCORRECT');
     }
   };
 
@@ -65,7 +71,12 @@ export default function UserJoinComponent({ executeJoin }) {
   };
 
   const userJoin = () => {
-    if (emailMsg && pwdMsg && pwdCheckMsg && termOne) {
+    if (
+      emailMsg === 'CORRECT' &&
+      pwdMsg === 'CORRECT' &&
+      pwdCheckMsg === 'CORRECT' &&
+      termOne
+    ) {
       const _email = email.current.value;
       const _pwd = pwd.current.value;
       const _termOne = termOne ? 1 : 0;
@@ -83,6 +94,7 @@ export default function UserJoinComponent({ executeJoin }) {
   };
   return (
     <div id="UserJoinComponent">
+      <ShowSpinning loading={loading} />
       <div className="title">
         세상 간편한 이슈관리
         <br />
@@ -97,8 +109,8 @@ export default function UserJoinComponent({ executeJoin }) {
           onChange={emailValidation}
         />
         <div className="mssg">
-          {emailMsg === 2 && `이미 사용중인 계정입니다.`}
-          {emailMsg === 3 && `올바른 이메일 형식이 아닙니다.`}
+          {double && `이미 사용중인 계정입니다.`}
+          {emailMsg === 'INCORRECT' && `올바른 이메일 형식이 아닙니다.`}
         </div>
         <div className="label">비밀번호</div>
         <input
@@ -108,7 +120,8 @@ export default function UserJoinComponent({ executeJoin }) {
           onChange={pwdValidation}
         />
         <div className="mssg">
-          {pwdMsg === 1 && `영문, 숫자 혼합하여 8자리 이상 20자리 이하`}
+          {pwdMsg === 'INCORRECT' &&
+            `영문, 숫자 혼합하여 8자리 이상 20자리 이하`}
         </div>
         <div className="label">비밀번호 확인</div>
         <input
@@ -118,7 +131,7 @@ export default function UserJoinComponent({ executeJoin }) {
           onChange={pwdCheckValidation}
         />
         <div className="mssg">
-          {pwdCheckMsg === 1 && `비밀번호가 일치하지 않습니다.`}
+          {pwdCheckMsg === 'INCORRECT' && `비밀번호가 일치하지 않습니다.`}
         </div>
         <div className="first term-div">
           <Checkbox className="term" onChange={checkAll}>

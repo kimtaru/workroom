@@ -20,11 +20,3 @@ export function checkPwd(pwd) {
     return true;
   }
 }
-
-export function doubleCheck(email) {
-  if (email === 'kkk@kk.js') {
-    return true;
-  } else {
-    return false;
-  }
-}
