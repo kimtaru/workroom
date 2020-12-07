@@ -3,12 +3,13 @@ import { Layout } from 'antd';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import jQuery from 'jquery';
+import useAuth from '../../hooks/useAuth';
 
 window.$ = window.jQuery = jQuery;
 
 export default function IssueSider() {
   const { Sider } = Layout;
-
+  useAuth(true);
   $(function () {
     $('.menuItem').click(function () {
       $('.menuItem').removeClass('selected');

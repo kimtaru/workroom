@@ -3,10 +3,17 @@ import { Layout } from 'antd';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import jQuery from 'jquery';
+import { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { startUserLogout } from '../redux/modules/user';
 window.$ = window.jQuery = jQuery;
 
 export default function HeaderComponent({ current }) {
   const { Header } = Layout;
+
+  const dispatch = useDispatch();
+
+  const { token } = useSelector((state) => state.user);
 
   useEffect(() => {
     const arr = $('.menu').get();
@@ -16,6 +23,10 @@ export default function HeaderComponent({ current }) {
     $(arr[current]).addClass('current');
     // 현재 선택된 메뉴에만 클래스 추가
   }, [current]);
+
+  const logout = useCallback(() => {
+    dispatch(startUserLogout());
+  }, [dispatch]);
 
   return (
     <Header id="HeaderComponent">
@@ -48,9 +59,15 @@ export default function HeaderComponent({ current }) {
           </div>
         </div>
         <div className="user-state">
-          <Link className="aa" to="/auth/login">
-            <span className="loginBtn">[ LOGIN ]</span>
-          </Link>
+          {token === null ? (
+            <Link className="aa" to="/auth/login">
+              <span className="loginBtn">[ LOGIN ]</span>
+            </Link>
+          ) : (
+            <span className="loginBtn" onClick={logout}>
+              [ LOGOUT ]
+            </span>
+          )}
         </div>
       </div>
     </Header>

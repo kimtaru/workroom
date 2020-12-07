@@ -75,6 +75,7 @@ export default function UserJoinComponent({ executeJoin, doubleCheck }) {
       emailMsg === 'CORRECT' &&
       pwdMsg === 'CORRECT' &&
       pwdCheckMsg === 'CORRECT' &&
+      !double &&
       termOne
     ) {
       const _email = email.current.value;
