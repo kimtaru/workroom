@@ -4,11 +4,12 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import { useSelector } from 'react-redux';
+import ShowSpinning from './common/ShowSpinning';
 
 export default function UserLoginComponent({ executeLogin }) {
   const google = <FontAwesomeIcon icon={faGoogle} size="lg" />;
 
-  const { wrongInfo } = useSelector((state) => state.user);
+  const { wrongInfo, loading } = useSelector((state) => state.user);
 
   const email = useRef();
   const pwd = useRef();
@@ -18,8 +19,15 @@ export default function UserLoginComponent({ executeLogin }) {
     const _pwd = pwd.current.value;
     executeLogin(_email, _pwd);
   };
+
+  const onkeyPress = (e) => {
+    if (e.key === 'Enter') {
+      userLogin();
+    }
+  };
   return (
     <div id="UserLoginComponent">
+      <ShowSpinning loading={loading} />
       <div className="title">Sign in</div>
       <div className="subtitle">간편한 이슈관리 툴, 워크룸</div>
       <div className="form">
@@ -31,7 +39,12 @@ export default function UserLoginComponent({ executeLogin }) {
           <input type="text" placeholder="이메일" ref={email} />
         </div>
         <div className="password">
-          <input type="password" placeholder="비밀번호" ref={pwd} />
+          <input
+            type="password"
+            placeholder="비밀번호"
+            ref={pwd}
+            onKeyPress={onkeyPress}
+          />
         </div>
         <div className="forgot">비밀번호 찾기</div>
         {/* 비밀번호 찾기 함수 구현하기 */}

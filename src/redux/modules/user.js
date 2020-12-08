@@ -95,7 +95,6 @@ function* startUserLoginSaga(action) {
     yield put(success(token));
     yield put(push('/'));
   } catch (err) {
-    console.log('????error!!!');
     yield put(wrongCheck(true));
     yield put(fail(err));
   }

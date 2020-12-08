@@ -7,8 +7,9 @@ export default function HomeContent() {
     <Content id="HomeContent">
       <div>
         <div className="copyright">
-          사용하기 간편한 이슈관리 툴
-          <br /> <span>Workroom</span>
+          1. 비밀번호 찾기 구현
+          <br />
+          2. 구글 로그인 구현
         </div>
       </div>
     </Content>
