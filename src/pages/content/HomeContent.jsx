@@ -7,7 +7,7 @@ export default function HomeContent() {
     <Content id="HomeContent">
       <div>
         <div className="copyright">
-          1. 비밀번호 찾기 구현
+          1. 비밀번호 찾기 구현 (ㅇ)
           <br />
           2. 구글 로그인 구현
         </div>

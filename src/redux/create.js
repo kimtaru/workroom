@@ -20,6 +20,10 @@ export default function create() {
       double: false,
       loading: false,
       error: null,
+      visible: false,
+      message: null,
+      authKey: null,
+      email: null,
     },
   };
 

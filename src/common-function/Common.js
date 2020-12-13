@@ -20,3 +20,17 @@ export function checkPwd(pwd) {
     return true;
   }
 }
+
+/*
+   6자리 인증키 생성 
+  */
+export function generateKey() {
+  function random(n1, n2) {
+    return parseInt(Math.random() * (n2 - n1 + 1)) + n1;
+  }
+  let value = '';
+  for (let i = 0; i < 6; i++) {
+    value += random(0, 9);
+  }
+  return value;
+}

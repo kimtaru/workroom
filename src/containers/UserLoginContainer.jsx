@@ -2,7 +2,7 @@ import React from 'react';
 import UserLoginComponent from '../components/UserLoginComponent';
 import { useDispatch } from 'react-redux';
 import { useCallback } from 'react';
-import { startUserLogin } from '../redux/modules/user';
+import { startUserLogin, modalSet } from '../redux/modules/user';
 
 export default function UserLoginContainer() {
   const dispatch = useDispatch();
@@ -13,5 +13,11 @@ export default function UserLoginContainer() {
     },
     [dispatch],
   );
-  return <UserLoginComponent executeLogin={executeLogin} />;
+
+  const modalCall = useCallback(() => {
+    dispatch(modalSet());
+  }, [dispatch]);
+  return (
+    <UserLoginComponent modalCall={modalCall} executeLogin={executeLogin} />
+  );
 }

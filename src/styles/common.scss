@@ -15,6 +15,27 @@ $blue: '#4386f1';
 .ant-layout {
   background: #ffffff !important;
 }
+.form {
+  padding-top: 20px;
+  .mssg {
+    color: red;
+    height: 16px;
+    width: 350px;
+    margin: 0 auto 0 auto;
+    text-align: left;
+    padding-left: 5px;
+    font-size: 11px;
+  }
+  .label {
+    width: 350px;
+    text-align: left;
+    margin: 0 auto 0 auto;
+    color: gray;
+    font-size: 12px;
+    margin-top: 7px;
+    padding-left: 2px;
+  }
+}
 
 input {
   width: 350px;
@@ -151,58 +172,47 @@ hr {
   max-width: 2000px;
   margin: 0 auto 0 auto;
 }
+#ResetPwd {
+  width: 600px;
+  margin: 85px auto 0 auto;
+  text-align: center;
+  .title {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  .last {
+    margin-bottom: 25px;
+  }
+}
 #UserJoinComponent {
   width: 600px;
   margin: 85px auto 0 auto;
   text-align: center;
   .title {
     font-family: $kor-font;
-
     font-size: 17px;
-
     line-height: 28px;
     .strong {
       font-weight: bold;
       color: #4386f1;
     }
   }
-  .form {
-    padding-top: 20px;
-    .mssg {
-      color: red;
-      height: 16px;
-      width: 350px;
-      margin: 0 auto 0 auto;
-      text-align: left;
-      padding-left: 5px;
-      font-size: 11px;
+  .first {
+    padding-top: 12px;
+    //border: 1px solid red;
+  }
+  .term-div {
+    width: 350px;
+    text-align: left;
+    margin: 0 auto 10px auto;
+    color: gray;
+    .term {
+      color: #3e3f40;
     }
-    .label {
-      width: 350px;
-      text-align: left;
-      margin: 0 auto 0 auto;
-      color: gray;
-      font-size: 12px;
-      margin-top: 7px;
-      padding-left: 2px;
-    }
-    .first {
-      padding-top: 12px;
-      //border: 1px solid red;
-    }
-    .term-div {
-      width: 350px;
-      text-align: left;
-      margin: 0 auto 10px auto;
-      color: gray;
-      .term {
-        color: #3e3f40;
-      }
-    }
+  }
 
-    .join-btn {
-      margin-top: 25px;
-    }
+  .join-btn {
+    margin-top: 25px;
   }
 }
 #UserLoginComponent {
@@ -288,6 +298,44 @@ hr {
   .moveBtn {
     margin-top: 50px;
     width: 120px;
+  }
+}
+
+#FindPwd {
+  p {
+    margin: 0;
+    font-family: $kor-font;
+  }
+  .find-div {
+    margin: 120px auto 0 auto;
+    text-align: center;
+    width: 800px;
+    .strong {
+      font-weight: bold;
+      color: #4386f1;
+    }
+    .mssg {
+      margin-top: 15px;
+      color: red;
+    }
+    .title1 {
+      font-size: 3em;
+      margin-bottom: 15px;
+    }
+    .title2 {
+      font-size: 1.2em;
+    }
+    .email-input {
+      margin-top: 24px;
+      margin-bottom: 5px;
+    }
+  }
+  .auth-div {
+    margin-top: 60px;
+    .authKey-input {
+      margin-bottom: 5px;
+      margin-top: 15px;
+    }
   }
 }
 

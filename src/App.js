@@ -15,6 +15,8 @@ import Hi from './pages/content/IssueContent/Hi';
 import Hello from './pages/content/IssueContent/Hello';
 import UserJoin from './pages/UserJoin';
 import Successed from './pages/Successed';
+import FindPwd from './pages/content/FindPwd';
+import ResetPwd from './pages/content/ResetPwd';
 
 function App() {
   return (
@@ -43,6 +45,14 @@ function App() {
             <Route path="/auth/login">
               <Route component={Header} />
               <Route component={UserLogin} />
+            </Route>
+            <Route path="/auth/findPwd">
+              <Route component={Header} />
+              <Route component={FindPwd} />
+            </Route>
+            <Route path="/auth/setPwd">
+              <Route component={Header} />
+              <Route component={ResetPwd} />
             </Route>
             <Route path="/join">
               <Route component={Header} />

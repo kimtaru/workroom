@@ -1,16 +1,17 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import ShowSpinning from './common/ShowSpinning';
 
-export default function UserLoginComponent({ executeLogin }) {
+export default function UserLoginComponent({ executeLogin, modalCall }) {
   const google = <FontAwesomeIcon icon={faGoogle} size="lg" />;
 
   const { wrongInfo, loading } = useSelector((state) => state.user);
 
+  const history = useHistory();
   const email = useRef();
   const pwd = useRef();
 
@@ -25,9 +26,17 @@ export default function UserLoginComponent({ executeLogin }) {
       userLogin();
     }
   };
+
+  const findPwd = () => {
+    history.push('/auth/findPwd');
+  };
+
   return (
     <div id="UserLoginComponent">
       <ShowSpinning loading={loading} />
+      {/* <FindPasswordPop modalCall={modalCall} visible={visible}>
+        Hello
+      </FindPasswordPop> */}
       <div className="title">Sign in</div>
       <div className="subtitle">간편한 이슈관리 툴, 워크룸</div>
       <div className="form">
@@ -46,7 +55,9 @@ export default function UserLoginComponent({ executeLogin }) {
             onKeyPress={onkeyPress}
           />
         </div>
-        <div className="forgot">비밀번호 찾기</div>
+        <div className="forgot" onClick={findPwd}>
+          비밀번호 찾기
+        </div>
         {/* 비밀번호 찾기 함수 구현하기 */}
         <div className="btn-div">
           <button className="loginBtn" onClick={userLogin}>
