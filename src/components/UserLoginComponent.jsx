@@ -5,6 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import ShowSpinning from './common/ShowSpinning';
+import { GoogleLogin } from 'react-google-login';
 
 export default function UserLoginComponent({ executeLogin, modalCall }) {
   const google = <FontAwesomeIcon icon={faGoogle} size="lg" />;
@@ -25,6 +26,11 @@ export default function UserLoginComponent({ executeLogin, modalCall }) {
     if (e.key === 'Enter') {
       userLogin();
     }
+  };
+
+  const responseGoogle = (response) => {
+    //console.log(response);
+    console.log(response.profileObj);
   };
 
   const findPwd = () => {
@@ -64,7 +70,24 @@ export default function UserLoginComponent({ executeLogin, modalCall }) {
             로그인
           </button>
           <hr />
-          <div className="googleLogin">{google} Google 계정으로 로그인</div>
+
+          {/* <div className="googleLogin">{google} Google 계정으로 로그인</div> */}
+          <GoogleLogin
+            clientId="173710766802-hk7mqd86vp1bt984g29kve2rse0tp77h.apps.googleusercontent.com"
+            render={(renderProps) => (
+              <div
+                className="googleLogin"
+                onClick={renderProps.onClick}
+                disabled={renderProps.disabled}
+              >
+                {google} Google 계정으로 로그인
+              </div>
+            )}
+            buttonText="Login"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+          />
           <div className="messege">
             아직 계정이 없으신가요?{' '}
             <Link to="/join" className="link-to-join">

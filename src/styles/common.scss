@@ -37,7 +37,8 @@ $blue: '#4386f1';
   }
 }
 
-input {
+input[type='text'],
+input[type='password'] {
   width: 350px;
   height: 45px;
   border: 1px solid lightgrey;
@@ -347,4 +348,12 @@ hr {
 #Hello {
   font-size: 100px;
   @include content;
+}
+
+.badge {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
